@@ -20,20 +20,14 @@
 
     <div class="icons-list">
       <div @click="$emit('expandMenu')"  class="icon-item">
-         <span class="icon-tooltip">
-          expand menu
-        </span>
         <img src="/icons/Huge-icon-5.png" alt="expand menu">
       </div>
-      <div class="icon-item" v-for="iconItem in Helpers.headerList" :key="iconItem.id">
-        <span class="icon-tooltip">
-          {{ iconItem.name }}
-        </span>
+      <router-link :to="iconItem.pathName"  class="icon-item" v-for="iconItem in Helpers.headerList" :key="iconItem.id">
         <p v-if="props.isOpen" class="icon-name">
           {{ iconItem.name }}
         </p>
         <img class="icon-image" :src="iconItem.icon" :alt="iconItem.name">
-      </div>
+      </router-link>
     </div>
   </header>
 </template>
@@ -42,7 +36,7 @@
 .header {
   width: 100%;
   transition: all 0.5s ease;
-  background: darkred;
+  background: #100101;
   padding: 10px;
 }
 
@@ -67,28 +61,6 @@
 
 .icon-item:hover {
   background: rosybrown;
-}
-
-.icon-item:hover .icon-tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.icon-tooltip {
-  visibility: hidden;
-  position: absolute;
-  left: 40px;
-  z-index: 1;
-  width: 100px;
-  color: white;
-  font-size: 12px;
-  opacity: 0;
-  text-align: center;
-  font-weight: bold;
-  transition: all 6s ease;
-  background: #192733;
-  border-radius: 10px;
-  padding: 10px 15px 10px 15px;
 }
 
 .icon-image {

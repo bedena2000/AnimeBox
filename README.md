@@ -6,7 +6,7 @@ Folder Structure:
     
 
 
-Task 1:
+Task 1 (completed ✔️):
     Header Component
     # Content
     1) Expand icon (should expand menu or make smaller)
@@ -17,3 +17,11 @@ Task 1:
     6) Settings Page (should lead user to the website settings)
     7) Contact (should lead user to the contact page)
 
+Task 2
+    Set up vue router
+    Routes:
+        / -> home page
+        /profile -> shows page for user profile
+        /liked -> shows page where user can see liked pages
+        /settings -> shows page settings
+        /contact -> shows contacts

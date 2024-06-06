@@ -23,7 +23,7 @@ import {computed, ref} from "vue";
 
   <div :style="{ gridTemplateColumns: expandedStyling }" class="main">
     <Header :isOpen="isOpen" @expand-menu="changeHeaderSize" />
-
+    <RouterView />
   </div>
 
 </template>
@@ -40,6 +40,7 @@ import {computed, ref} from "vue";
   min-height: 100vh;
   background: #100101;
   display: grid;
+  transition: grid-template-columns 0.3s ease;
 }
 
 </style>

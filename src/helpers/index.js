@@ -30,7 +30,7 @@ export default {
         {
             id: 5,
             name: 'Contact',
-            pathName: '/icons',
+            pathName: '/contact',
             icon: '/icons/Huge-icon.png'
         }
     ]
