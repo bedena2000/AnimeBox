@@ -1,6 +1,11 @@
 <script setup>
   import Helpers from "@/helpers/index.js";
-  console.log(Helpers.headerList);
+
+  const props = defineProps({
+    isOpen: Boolean
+  });
+
+
 </script>
 
 <template>
@@ -14,11 +19,20 @@
     </div>
 
     <div class="icons-list">
-      <div class="icon-item" v-for="iconItem in Helpers.headerList">
+      <div @click="$emit('expandMenu')"  class="icon-item">
+         <span class="icon-tooltip">
+          expand menu
+        </span>
+        <img src="/icons/Huge-icon-5.png" alt="expand menu">
+      </div>
+      <div class="icon-item" v-for="iconItem in Helpers.headerList" :key="iconItem.id">
         <span class="icon-tooltip">
           {{ iconItem.name }}
         </span>
-        <img :src="iconItem.icon" :alt="iconItem.name">
+        <p v-if="props.isOpen" class="icon-name">
+          {{ iconItem.name }}
+        </p>
+        <img class="icon-image" :src="iconItem.icon" :alt="iconItem.name">
       </div>
     </div>
   </header>
@@ -28,6 +42,8 @@
 .header {
   width: 100%;
   transition: all 0.5s ease;
+  background: darkred;
+  padding: 10px;
 }
 
 .icons-list {
@@ -41,12 +57,12 @@
 .icon-item {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   cursor: pointer;
   transition: all 0.5s ease;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 12px;
+  gap: 12px;
 }
 
 .icon-item:hover {
@@ -74,6 +90,18 @@
   border-radius: 10px;
   padding: 10px 15px 10px 15px;
 }
+
+.icon-image {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-name {
+  color: white;
+  font-family: "Anonymous Pro";
+  font-weight: bold;
+}
+
 
 
 

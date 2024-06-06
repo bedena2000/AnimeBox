@@ -1,20 +1,28 @@
 <script setup>
-  import { ref } from "vue";
+import {computed, ref} from "vue";
   import Header from "@/components/Header.vue";
 
-  const headerSize = ref('1fr 10fr');
+  const isOpen = ref(false);
 
   const changeHeaderSize = () => {
-    headerSize.value = '3fr 10fr';
+    isOpen.value = !isOpen.value;
   }
+
+  const expandedStyling = computed(() => {
+    if(isOpen.value) {
+      return '3fr 10fr';
+    } else {
+      return '1fr 10fr'
+    }
+  });
 
 
 </script>
 
 <template>
 
-  <div :style="{ gridTemplateColumns: headerSize }" class="main">
-    <Header />
+  <div :style="{ gridTemplateColumns: expandedStyling }" class="main">
+    <Header :isOpen="isOpen" @expand-menu="changeHeaderSize" />
 
   </div>
 
