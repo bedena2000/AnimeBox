@@ -35,6 +35,10 @@ const showTrailer = () => {
     isTrailer.value = true;
 };
 
+const closeTrailer = () => {
+    isTrailer.value = false;
+};
+
 </script>
 
 
@@ -76,8 +80,12 @@ const showTrailer = () => {
             </p>
           </button>
         </div>
-        <div v-if="isTrailer">
-
+        <div v-if="isTrailer && currentMainAnime">
+          <iframe class="youtube-video" target="_parent" width="100%" height="315" :src="`https://www.youtube.com/embed/${currentMainAnime.trailer.youtube_id}`">
+          </iframe>
+          <button @click.prevent="closeTrailer" class="youtube-close-button">
+            Close ❌
+          </button>
         </div>
       </div>
       
@@ -260,6 +268,29 @@ const showTrailer = () => {
     margin-top: 22px;
     font-size: 24px;
     font-weight: bold;
+  }
+
+  .youtube-video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .youtube-close-button {
+    z-index: 3;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border: 6px dashed darkred;
+    padding: 6px 12px;
+    border-radius: 26px;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.3s ease;
   }
 
 </style>
