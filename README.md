@@ -24,8 +24,11 @@ Task 2 (completed ✔️)
         /settings -> shows page settings
         /contact -> shows contacts
 
-Task 3 
+Task 3 (completed ✔️)
     Creating Home Page
     Search Box Component
     Random Anime
     OnGoing Anime list
+
+Task 4 
+    Creating Trailer Player

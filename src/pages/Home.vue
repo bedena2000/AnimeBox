@@ -1,12 +1,13 @@
 <script setup>
 import { useAnimeStore } from "@/store/index.js";
 import services from "@/services/index.js";
-import { onMounted, ref } from "vue";
+import {onMounted, onUpdated, ref, watch} from "vue";
 
 const loading = ref(false);
 const errorMessage = ref(false);
 const store = useAnimeStore();
 const currentMainAnime = ref(null);
+const isTrailer = ref(false);
 
 onMounted(async () => {
   loading.value = true;
@@ -30,6 +31,9 @@ onMounted(async () => {
   }
 });
 
+const showTrailer = () => {
+    isTrailer.value = true;
+};
 
 </script>
 
@@ -56,8 +60,8 @@ onMounted(async () => {
       </p>
 
       <div class="main-anime" v-if="currentMainAnime">
-        <img :src="currentMainAnime.images.jpg['large_image_url']" alt="main-image">
-        <div class="main-anime-options">
+        <img v-if="isTrailer === false" :src="currentMainAnime.images.jpg['large_image_url']" alt="main-image">
+        <div v-if="isTrailer === false"  class="main-anime-options">
           <h2>{{ currentMainAnime.title }}</h2>
           <p>
             {{ currentMainAnime.synopsis }}
@@ -65,12 +69,15 @@ onMounted(async () => {
           <div>
             Result: {{ currentMainAnime.status }}
           </div>
-          <button>
+          <button @click.prevent="showTrailer">
             <img src="/icons/play-icon.png" alt="play button">
             <p>
               Watch
             </p>
           </button>
+        </div>
+        <div v-if="isTrailer">
+
         </div>
       </div>
       
