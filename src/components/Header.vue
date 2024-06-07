@@ -1,5 +1,7 @@
 <script setup>
   import Helpers from "@/helpers/index.js";
+  import { useRouter, useRoute } from "vue-router";
+  const router = useRoute();
 
   const props = defineProps({
     isOpen: Boolean
@@ -22,7 +24,11 @@
       <div @click="$emit('expandMenu')"  class="icon-item">
         <img src="/icons/Huge-icon-5.png" alt="expand menu">
       </div>
-      <router-link :to="iconItem.pathName"  class="icon-item" v-for="iconItem in Helpers.headerList" :key="iconItem.id">
+      <router-link :style="{ background: router.path === iconItem.pathName ?
+        'blue' : '',
+        borderRadius: router.path === iconItem.pathName ?
+        '14px' : ''
+      }" :to="iconItem.pathName"  class="icon-item" v-for="iconItem in Helpers.headerList" :key="iconItem.id">
         <p v-if="props.isOpen" class="icon-name">
           {{ iconItem.name }}
         </p>
@@ -60,7 +66,8 @@
 }
 
 .icon-item:hover {
-  background: rosybrown;
+  background: blue;
+  border-radius: 22px;
 }
 
 .icon-image {

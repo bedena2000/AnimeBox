@@ -4,8 +4,6 @@ Folder Structure:
     pages -> pages
     helpers -> all data or function which is useful for website
     
-
-
 Task 1 (completed ✔️):
     Header Component
     # Content
@@ -17,7 +15,7 @@ Task 1 (completed ✔️):
     6) Settings Page (should lead user to the website settings)
     7) Contact (should lead user to the contact page)
 
-Task 2
+Task 2 (completed ✔️)
     Set up vue router
     Routes:
         / -> home page
@@ -25,3 +23,9 @@ Task 2
         /liked -> shows page where user can see liked pages
         /settings -> shows page settings
         /contact -> shows contacts
+
+Task 3 
+    Creating Home Page
+    Search Box Component
+    Random Anime
+    OnGoing Anime list

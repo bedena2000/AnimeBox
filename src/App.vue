@@ -30,6 +30,7 @@ import {computed, ref} from "vue";
 
 <style>
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -41,6 +42,7 @@ import {computed, ref} from "vue";
   background: #100101;
   display: grid;
   transition: grid-template-columns 0.3s ease;
+  font-family: "Inter", sans-serif;
 }
 
 </style>
