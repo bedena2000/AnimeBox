@@ -1,10 +1,10 @@
-<script>
-
+<script setup>
+import LoginPage from '@/components/LoginPage.vue';
 </script>
 
 <template>
   <div class="home">
-    <h1>Profile</h1>
+    <LoginPage />
   </div>
 </template>
 
@@ -12,5 +12,8 @@
 .home {
   padding: 24px;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

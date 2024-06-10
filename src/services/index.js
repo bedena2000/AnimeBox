@@ -10,5 +10,8 @@ export default {
     },
     getUpComings() {
         return instance.get('/seasons/upcoming');
+    },
+    getAnime(animeId) {
+        return instance.get(`/anime/${animeId}`);
     }
 }

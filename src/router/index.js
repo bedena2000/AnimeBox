@@ -4,6 +4,7 @@ import Profile from '@/pages/Profile.vue';
 import Liked from '@/pages/Liked.vue';
 import Settings from '@/pages/Settings.vue';
 import Contact from '@/pages/Contact.vue';
+import Anime from "@/pages/Anime.vue";
 
 const routes = [
     {
@@ -26,6 +27,10 @@ const routes = [
         path: '/contact',
         component: Contact
     },
+    {
+        path: '/anime/:id',
+        component: Anime
+    }
 ];
 
 export const router = createRouter({

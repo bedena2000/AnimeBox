@@ -30,5 +30,11 @@ Task 3 (completed ✔️)
     Random Anime
     OnGoing Anime list
 
-Task 4 
+Task 4 (completed ✔️)
     Creating Trailer Player
+
+Task 5 (completed ✔️)
+    Display Each Anime
+
+Task 6 (pending)
+    Creating Login and Registration Page

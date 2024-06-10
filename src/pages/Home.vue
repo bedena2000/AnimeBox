@@ -2,12 +2,14 @@
 import { useAnimeStore } from "@/store/index.js";
 import services from "@/services/index.js";
 import {onMounted, onUpdated, ref, watch} from "vue";
+import {useRouter} from "vue-router";
 
 const loading = ref(false);
 const errorMessage = ref(false);
 const store = useAnimeStore();
 const currentMainAnime = ref(null);
 const isTrailer = ref(false);
+const router = useRouter();
 
 onMounted(async () => {
   loading.value = true;
@@ -38,6 +40,10 @@ const showTrailer = () => {
 const closeTrailer = () => {
     isTrailer.value = false;
 };
+
+const goToAnime = (animeId) => {
+  router.push(`/anime/${animeId}`);
+}
 
 </script>
 
@@ -71,7 +77,7 @@ const closeTrailer = () => {
             {{ currentMainAnime.synopsis }}
           </p>
           <div>
-            Result: {{ currentMainAnime.status }}
+            Status: {{ currentMainAnime.status }}
           </div>
           <button @click.prevent="showTrailer">
             <img src="/icons/play-icon.png" alt="play button">
@@ -97,7 +103,7 @@ const closeTrailer = () => {
         <p class="see-all">See All</p>
       </div>
       <div v-if="store.onGoingAnimeList.length > 0" class="anime-list-wrapper">
-        <div v-for="item in store.onGoingAnimeList" class="anime-list-item">
+        <div @click="goToAnime(item.mal_id)" v-for="item in store.onGoingAnimeList" class="anime-list-item">
           <img :src="item.images.jpg['image_url']" alt="poster">
           <p>{{ item.title }}</p>
         </div>
