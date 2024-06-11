@@ -58,7 +58,7 @@ const searchAnime = () => {
     <div class="profile">
       <div class="search-box">
         <img @click.prevent="searchAnime" src="/icons/search_icon.png" alt="search icon">
-        <input v-model="search" placeholder="Explore" type="text">
+        <input @keydown.enter="searchAnime" v-model="search" placeholder="Explore" type="text">
       </div>
       <div class="profile-options">
 
@@ -104,7 +104,6 @@ const searchAnime = () => {
     <div class="anime-list">
       <div class="anime-list-title">
         <p class="on-going">Up Coming</p>
-        <p class="see-all">See All</p>
       </div>
       <div v-if="store.onGoingAnimeList.length > 0" class="anime-list-wrapper">
         <AnimeCard

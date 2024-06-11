@@ -48,5 +48,8 @@ Task 8 (completed ✔️)
 Task 9 (completed ✔️)
     Creating Settings Page
 
-Task 10 (Pending)
+Task 10 (completed ✔️)
     Creating Contact Page
+
+Task 11 (pending)
+    Make Website Responsive
