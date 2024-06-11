@@ -7,6 +7,7 @@ import Contact from '@/pages/Contact.vue';
 import Anime from "@/pages/Anime.vue";
 import Login from "@/components/LoginPage.vue";
 import RegisterPage from "@/components/RegisterPage.vue";
+import Search from "@/pages/Search.vue";
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
     {
         path: '/anime/:id',
         component: Anime
+    },
+    {
+        path: '/search/:searchParam',
+        component: Search
+
     }
 ];
 

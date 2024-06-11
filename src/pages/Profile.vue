@@ -15,5 +15,6 @@
   justify-content: center;
   align-items: center;
   background: #EEEEEE;
+  border-top-left-radius: 100px;
 }
 </style>

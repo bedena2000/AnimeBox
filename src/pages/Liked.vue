@@ -26,9 +26,10 @@ import AnimeCard from "@/components/AnimeCard.vue";
 
 <style scoped>
 .home {
-  padding: 24px;
+  padding: 36px;
   color: black;
   background: #EEEEEE;
+  border-top-left-radius: 100px;
 }
 
 .anime-list-wrapper {

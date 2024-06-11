@@ -99,6 +99,7 @@ const removedFromAlreadyLiked = () => {
   gap: 24px;
   padding: 42px;
   background: #EEEEEE;
+  border-top-left-radius: 100px;
 }
 
 .anime-info {

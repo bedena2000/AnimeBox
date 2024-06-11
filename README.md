@@ -39,5 +39,14 @@ Task 5 (completed ✔️)
 Task 6 (completed ✔️)
     Creating Login and Registration Page
 
-Task 7 (pending)
+Task 7 (completed ✔️)
     Creating Liked Page
+
+Task 8 (completed ✔️)
+    Creating Search Page
+
+Task 9 (completed ✔️)
+    Creating Settings Page
+
+Task 10 (Pending)
+    Creating Contact Page

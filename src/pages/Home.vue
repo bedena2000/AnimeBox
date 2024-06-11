@@ -10,6 +10,7 @@ const errorMessage = ref(false);
 const store = useAnimeStore();
 const currentMainAnime = ref(null);
 const isTrailer = ref(false);
+const search = ref('');
 const router = useRouter();
 
 onMounted(async () => {
@@ -41,6 +42,13 @@ const closeTrailer = () => {
     isTrailer.value = false;
 };
 
+const searchAnime = () => {
+    if(search.value.trim()) {
+      const final = search.value.trim();
+      router.push(`/search/${final}`);
+    }
+};
+
 </script>
 
 
@@ -49,8 +57,8 @@ const closeTrailer = () => {
 
     <div class="profile">
       <div class="search-box">
-        <img src="/icons/search_icon.png" alt="search icon">
-        <input placeholder="Explore" type="text">
+        <img @click.prevent="searchAnime" src="/icons/search_icon.png" alt="search icon">
+        <input v-model="search" placeholder="Explore" type="text">
       </div>
       <div class="profile-options">
 

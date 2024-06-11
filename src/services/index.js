@@ -13,5 +13,8 @@ export default {
     },
     getAnime(animeId) {
         return instance.get(`/anime/${animeId}`);
+    },
+    getAnimeByName(animeName) {
+        return instance.get(`/anime?q=${animeName}&sfw`);
     }
 }
