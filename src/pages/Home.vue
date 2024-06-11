@@ -3,6 +3,7 @@ import { useAnimeStore } from "@/store/index.js";
 import services from "@/services/index.js";
 import {onMounted, onUpdated, ref, watch} from "vue";
 import {useRouter} from "vue-router";
+import AnimeCard from "@/components/AnimeCard.vue";
 
 const loading = ref(false);
 const errorMessage = ref(false);
@@ -29,7 +30,6 @@ onMounted(async () => {
     errorMessage.value = true;
   } finally {
     loading.value = false;
-    console.log(currentMainAnime.value);
   }
 });
 
@@ -40,10 +40,6 @@ const showTrailer = () => {
 const closeTrailer = () => {
     isTrailer.value = false;
 };
-
-const goToAnime = (animeId) => {
-  router.push(`/anime/${animeId}`);
-}
 
 </script>
 
@@ -103,10 +99,12 @@ const goToAnime = (animeId) => {
         <p class="see-all">See All</p>
       </div>
       <div v-if="store.onGoingAnimeList.length > 0" class="anime-list-wrapper">
-        <div @click="goToAnime(item.mal_id)" v-for="item in store.onGoingAnimeList" class="anime-list-item">
-          <img :src="item.images.jpg['image_url']" alt="poster">
-          <p>{{ item.title }}</p>
-        </div>
+        <AnimeCard
+            v-for="anime in store.onGoingAnimeList"
+            :id="anime.mal_id"
+            :title="anime.title"
+            :image="anime.images.jpg['image_url']"
+        />
       </div>
     </div>
 
@@ -255,26 +253,7 @@ const goToAnime = (animeId) => {
     margin-top: 38px;
   }
 
-  .anime-list-item {
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease;
-  }
-
-  .anime-list-item:hover {
-    filter: brightness(0.8);
-  }
-
-  .anime-list-item > img {
-    width: 100%;
-  }
-
-  .anime-list-item > p {
-    color: black;
-    margin-top: 22px;
-    font-size: 24px;
-    font-weight: bold;
-  }
+  
 
   .youtube-video {
     position: absolute;

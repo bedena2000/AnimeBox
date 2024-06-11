@@ -1,19 +1,19 @@
 <script setup>
-import LoginPage from '@/components/LoginPage.vue';
 </script>
 
 <template>
   <div class="home">
-    <LoginPage />
+    <RouterView />
   </div>
 </template>
 
 <style scoped>
 .home {
   padding: 24px;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #EEEEEE;
 }
 </style>

@@ -5,6 +5,8 @@ import Liked from '@/pages/Liked.vue';
 import Settings from '@/pages/Settings.vue';
 import Contact from '@/pages/Contact.vue';
 import Anime from "@/pages/Anime.vue";
+import Login from "@/components/LoginPage.vue";
+import RegisterPage from "@/components/RegisterPage.vue";
 
 const routes = [
     {
@@ -13,7 +15,17 @@ const routes = [
     },
     {
         path: '/profile',
-        component: Profile
+        component: Profile,
+        children: [
+            {
+                path: '',
+                component: Login
+            },
+            {
+                path: 'register',
+                component: RegisterPage
+            }
+        ]
     },
     {
         path: '/liked',

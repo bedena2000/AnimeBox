@@ -3,9 +3,11 @@
 import { useRoute, useRouter } from "vue-router";
 import {onMounted, ref} from "vue";
 import services from "@/services/index.js";
+import { useAnimeStore } from "@/store/index.js";
 
 const route = useRoute();
 const router = useRouter();
+const store = useAnimeStore();
 
 const loading = ref(false);
 const error = ref(false);
@@ -33,6 +35,21 @@ onMounted(async () => {
   }
 });
 
+const addToLiked = () => {
+  store.updateLikedAnimes(anime);
+};
+
+const alreadyLiked = () => {
+  const currentId = Number(route.params.id);
+  const isExist = store.likedAnimes.find(item => item.value.data.mal_id === currentId);
+  if(isExist) return true;
+
+  return false;
+};
+
+const removedFromAlreadyLiked = () => {
+  store.removedFromLiked(Number(route.params.id));
+};
 
 </script>
 
@@ -61,7 +78,8 @@ onMounted(async () => {
     <div class="buttons">
       <button v-if="!isTrailer" @click="isTrailer = true" class="trailer-button">Watch Trailer</button>
       <button v-if="isTrailer" @click="isTrailer = false" class="trailer-button">Close Trailer</button>
-      <button class="like-button">Add to Liked</button>
+      <button v-if="!alreadyLiked()" @click="addToLiked" class="like-button">Add to Liked</button>
+      <button v-if="alreadyLiked()" @click="removedFromAlreadyLiked" class="like-button">removed from liked</button>
     </div>
 
     <div v-if="isTrailer">

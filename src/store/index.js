@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 export const useAnimeStore = defineStore('animeStore', () => {
     const onGoingAnimeList = ref([]);
-    const likedAnimes = ref([]);
+    let likedAnimes = ref([]);
     const currentSelectedAnime = ref(null);
 
     const updateOnGoingAnime = (animeList) => {
@@ -11,10 +11,30 @@ export const useAnimeStore = defineStore('animeStore', () => {
     };
 
     const updateLikedAnimes = (anime) => {
-        likedAnimes.value = [
-            ...likedAnimes.value,
-            anime
-        ];
+
+        const items = likedAnimes.value.filter(item => item.value.data.mal_id === anime.value.data.mal_id);
+
+        if(items.length === 0) {
+            likedAnimes.value = [
+                ...likedAnimes.value,
+                anime
+            ]
+        }
+
+    };
+
+    const removedFromLiked = (animeId) => {
+        const isExist = likedAnimes.value.filter(item => {
+           return item.value.data.mal_id === animeId;
+        });
+
+        if(isExist.length > 0) {
+            const newArray = likedAnimes.value.filter(item => {
+                return item.value.data.mal_id !== animeId;
+            });
+            likedAnimes.value = newArray;
+        }
+
     };
 
     const updateCurrentSelectedAnime = (animeId) => {
@@ -28,6 +48,7 @@ export const useAnimeStore = defineStore('animeStore', () => {
         updateOnGoingAnime,
         updateLikedAnimes,
         updateCurrentSelectedAnime,
+        removedFromLiked
     }
 });
 

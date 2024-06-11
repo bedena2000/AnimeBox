@@ -36,5 +36,8 @@ Task 4 (completed ✔️)
 Task 5 (completed ✔️)
     Display Each Anime
 
-Task 6 (pending)
+Task 6 (completed ✔️)
     Creating Login and Registration Page
+
+Task 7 (pending)
+    Creating Liked Page

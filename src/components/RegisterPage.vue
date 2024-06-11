@@ -4,9 +4,9 @@ import {useRouter} from "vue-router";
 
 const router = useRouter();
 
-const moveToRegister = () => {
+const moveToLogin = () => {
   console.log('clicked');
-    router.push("/profile/register");
+  router.push("/profile");
 };
 
 </script>
@@ -25,9 +25,14 @@ const moveToRegister = () => {
       <input required type="password" id="password">
     </div>
 
+    <div class="information">
+      <label for="password">password</label>
+      <input required type="password" id="password">
+    </div>
+
     <div class="buttons">
-      <button type="button" class="enter-button">Enter</button>
-      <button @click.prevent="moveToRegister" class="register-button">Register</button>
+      <button type="button" class="enter-button">Register</button>
+      <button @click.prevent="moveToLogin" class="register-button">Login</button>
     </div>
 
   </form>
@@ -68,6 +73,7 @@ const moveToRegister = () => {
   display: flex;
   gap: 12px;
   margin-top: 12px;
+
 }
 
 .enter-button, .register-button{
@@ -76,14 +82,9 @@ const moveToRegister = () => {
   outline: none;
   border: none;
   cursor: pointer;
+  background: black;
+  color: white;
 }
 
-.enter-button {
-
-}
-
-.register-button {
-
-}
 
 </style>
