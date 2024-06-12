@@ -40,4 +40,10 @@ import AnimeCard from "@/components/AnimeCard.vue";
   gap: 12px;
   margin-top: 42px;
 }
+
+@media (max-width: 700px) {
+  .anime-list-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>

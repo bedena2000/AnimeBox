@@ -10,9 +10,6 @@
     isOpen: Boolean
   });
 
-  watch(store.theme, () => {
-    console.log('changed');
-  })
 
 </script>
 
@@ -51,6 +48,10 @@
   width: 100%;
   transition: all 0.5s ease;
   padding: 10px;
+}
+
+@media (max-width: 640px) {
+
 }
 
 .icons-list {

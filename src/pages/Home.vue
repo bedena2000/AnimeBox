@@ -105,7 +105,7 @@ const searchAnime = () => {
 
     <div class="anime-list">
       <div class="anime-list-title">
-        <p class="on-going">Up Coming</p>
+        <p :style="{ color: store.theme === 'Light' ? 'black' : 'white' }" class="on-going">Up Coming</p>
       </div>
       <div v-if="store.onGoingAnimeList.length > 0" class="anime-list-wrapper">
         <AnimeCard
@@ -134,6 +134,20 @@ const searchAnime = () => {
     border-radius: 24px;
     display: flex;
     padding: 7px 13px;
+  }
+
+  .profile {
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .search-box {
+      width: 100%;
+    }
+
+    .profile {
+      width: 100%;
+    }
   }
 
   .search-box > img {
@@ -192,6 +206,13 @@ const searchAnime = () => {
     filter: brightness(0.5);
   }
 
+
+  @media (max-width: 700px) {
+    .main-anime {
+      height: 40vh;
+    }
+  }
+
   .main-anime-options {
     color: white;
     z-index: 2;
@@ -234,6 +255,30 @@ const searchAnime = () => {
     font-size: 24px;
   }
 
+  @media (max-width: 700px) {
+    .main-anime-options > h2 {
+      font-size: 24px;
+    }
+
+    .main-anime-options > p {
+      font-size: 18px;
+    }
+
+    .main-anime-options > div {
+      font-size: 14px;
+    }
+
+    .main-anime-options > button {
+      padding: 2px 12px;
+      justify-content: flex-start;
+      width: auto;
+    }
+
+    .main-anime-options > button > p {
+      font-size: 14px;
+    }
+  }
+
   .anime-list-title {
     display: flex;
     justify-content: space-between;
@@ -245,6 +290,12 @@ const searchAnime = () => {
     font-size: 32px;
     font-weight: bold;
     cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    .on-going {
+      font-size: 20px;
+    }
   }
 
   .see-all {
@@ -259,6 +310,24 @@ const searchAnime = () => {
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     margin-top: 38px;
+  }
+
+  @media (max-width: 700px) {
+    .anime-list-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .anime-list-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .anime-list-wrapper {
+      grid-template-columns: 1fr;
+    }
   }
 
   

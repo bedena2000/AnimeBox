@@ -49,4 +49,8 @@
   font-family: "Roboto", sans-serif;
 }
 
+@media (max-width: 650px) {
+
+}
+
 </style>

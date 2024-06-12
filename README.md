@@ -51,5 +51,8 @@ Task 9 (completed ✔️)
 Task 10 (completed ✔️)
     Creating Contact Page
 
-Task 11 (pending)
+Task 11 (completed ✔️)
     Make website depending on settings
+
+Task 12 (Pending)
+    Make website responsive

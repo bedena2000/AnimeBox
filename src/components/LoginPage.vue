@@ -5,7 +5,6 @@ import {useRouter} from "vue-router";
 const router = useRouter();
 
 const moveToRegister = () => {
-  console.log('clicked');
     router.push("/profile/register");
 };
 

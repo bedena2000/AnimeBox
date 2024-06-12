@@ -71,7 +71,6 @@ const handleSelectedFont = (event) => {
 
       <div class="setting-buttons">
         <Button @click.prevent="saveSettings" type="button" label="Save" />
-        <Button  type="button" label="Clear" />
       </div>
 
     </div>

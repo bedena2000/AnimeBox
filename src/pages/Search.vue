@@ -53,4 +53,11 @@ onMounted(() => {
   gap: 26px;
   margin-top: 32px;
 }
+
+@media (max-width: 700px) {
+  .result-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
