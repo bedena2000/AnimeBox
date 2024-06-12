@@ -52,4 +52,4 @@ Task 10 (completed ✔️)
     Creating Contact Page
 
 Task 11 (pending)
-    Make Website Responsive
+    Make website depending on settings

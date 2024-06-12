@@ -3,51 +3,75 @@
 import { ref } from 'vue';
 import Dropdown from "primevue/dropdown";
 import Button from "primevue/button";
-
-const currentTheme = ref('Light');
+import { useAnimeStore } from "@/store/index.js";
+const store = useAnimeStore();
+const currentTheme = ref(store.theme);
 const themes = ref([
     'Light',
     'Dark'
 ]);
 
-const currentFont = ref('Roboto');
+const currentFont = ref(store.font);
 const fonts = ref([
   'Roboto',
   'Sans-Serif'
-])
+]);
+
+const saveChanges = () => {
+  const result = {
+    theme: currentTheme,
+    font: currentFont
+  };
+  store.updateSettings(result);
+}
+
+const saveSettings = () => {
+  store.updateSettings({
+    theme: currentTheme.value,
+    font: currentFont.value,
+  });
+};
+
+const handleSelectThemeChange = (event) => {
+  const selectedItem = event.target.value;
+  currentTheme.value = selectedItem;
+}
+
+const handleSelectedFont = (event) => {
+  const selectedItem = event.target.value;
+  currentFont.value = selectedItem;
+}
 
 
 </script>
 
 <template>
-  <div class="home">
+  <div class="home"
+       :style="{ background: store.theme === 'Light' ? '#EEEEEE' : 'black', color: store.theme === 'Light' ? 'black' : 'white'}"
+  >
     <h2>Settings</h2>
 
     <div class="settings">
 
-      <div class="setting-theme">
+      <div v-if="store.theme && store.font" class="setting-theme">
         <p>Theme:</p>
-        <Dropdown
-          placeholder="Select Theme"
-          v-model="currentTheme"
-          :options="themes"
-          class="w-full md:w-14rem"
-        />
+        <select :value="currentTheme" @change="handleSelectThemeChange"  name="theme" id="theme">
+          <option value="Light">Light</option>
+          <option value="Dark">Dark</option>
+        </select>
       </div>
 
       <div class="setting-font">
         <p>Font Family:</p>
-        <Dropdown
-            placeholder="Select Font"
-            v-model="currentFont"
-            :options="fonts"
-            class="w-full md:w-14rem"
-        />
+        <select :value="currentFont" @change="handleSelectedFont"  name="font" id="font">
+          <option value="Roboto">Roboto</option>
+          <option value="SansSerif">SansSerif</option>
+        </select>
       </div>
 
       <div class="setting-buttons">
-        <Button type="button" label="Save" />
-        <Button type="button" label="Clear" />
+        <Button @click.prevent="saveSettings" type="button" label="Save" />
+        <Button  type="button" label="Clear" />
       </div>
 
     </div>

@@ -1,17 +1,25 @@
 <script setup>
   import Helpers from "@/helpers/index.js";
   import { useRouter, useRoute } from "vue-router";
+  import {useAnimeStore} from "@/store/index.js";
+  import {watch} from "vue";
   const router = useRoute();
+  const store = useAnimeStore();
 
   const props = defineProps({
     isOpen: Boolean
   });
 
+  watch(store.theme, () => {
+    console.log('changed');
+  })
 
 </script>
 
 <template>
-  <header class="header">
+  <header class="header"
+
+  >
     <div>
 
     </div>
@@ -29,7 +37,7 @@
         borderRadius: router.path === iconItem.pathName ?
         '14px' : ''
       }" :to="iconItem.pathName"  class="icon-item" v-for="iconItem in Helpers.headerList" :key="iconItem.id">
-        <p v-if="props.isOpen" class="icon-name">
+        <p  v-if="props.isOpen" class="icon-name">
           {{ iconItem.name }}
         </p>
         <img class="icon-image" :src="iconItem.icon" :alt="iconItem.name">
@@ -42,7 +50,6 @@
 .header {
   width: 100%;
   transition: all 0.5s ease;
-  background: #100101;
   padding: 10px;
 }
 

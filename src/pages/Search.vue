@@ -7,6 +7,8 @@ import AnimeCard from "@/components/AnimeCard.vue";
 const route = useRoute();
 const animeSearchParam = route.params.searchParam;
 const animeList = ref([]);
+import {useAnimeStore} from "@/store/index.js";
+const store = useAnimeStore();
 
 onMounted(() => {
     services.getAnimeByName(animeSearchParam)
@@ -19,7 +21,9 @@ onMounted(() => {
 
 <template>
 
-  <div class="wrapper">
+  <div class="wrapper"
+       :style="{ background: store.theme === 'Light' ? '#EEEEEE' : 'black', color: store.theme === 'Light' ? 'black' : 'white'}"
+  >
     <h2>Result: </h2>
 
     <div class="result-wrapper" v-if="animeList.data && animeList.data.length > 0">

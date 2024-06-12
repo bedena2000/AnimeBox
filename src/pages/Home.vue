@@ -53,7 +53,9 @@ const searchAnime = () => {
 
 
 <template>
-  <div class="home">
+  <div
+      :style="{ background: store.theme === 'Light' ? '#EEEEEE' : 'black'}"
+      class="home">
 
     <div class="profile">
       <div class="search-box">
@@ -123,7 +125,6 @@ const searchAnime = () => {
   .home {
     padding: 24px;
     color: white;
-    background: #EEEEEE;
     border-top-left-radius: 100px;
   }
 

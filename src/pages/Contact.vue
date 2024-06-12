@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <div class="home">
+  <div class="home"
+
+  >
     <h1>Contact</h1>
 
     <div class="contact">

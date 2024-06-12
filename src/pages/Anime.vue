@@ -55,7 +55,10 @@ const removedFromAlreadyLiked = () => {
 
 <template>
 
-  <div class="anime-description" v-if="anime">
+  <div class="anime-description" v-if="anime"
+       :style="{ background: store.theme === 'Light' ? '#EEEEEE' : 'black', color: store.theme === 'Light' ? 'black' : 'white'}"
+
+  >
     <div class="anime-info">
       <div>
         <img :src="anime.data.images.jpg['image_url']" alt="animeThumbnail">

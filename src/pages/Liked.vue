@@ -8,7 +8,9 @@ import AnimeCard from "@/components/AnimeCard.vue";
 </script>
 
 <template>
-  <div class="home">
+  <div class="home"
+       :style="{ background: data.theme === 'Light' ? '#EEEEEE' : 'black', color: data.theme === 'Light' ? 'black' : 'white'}"
+  >
     <h2>Liked Animes:</h2>
 
     <div class="anime-list-wrapper" v-if="data.likedAnimes.length > 0">

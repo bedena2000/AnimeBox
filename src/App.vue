@@ -1,6 +1,8 @@
 <script setup>
-import {computed, ref} from "vue";
+ import {computed, ref} from "vue";
   import Header from "@/components/Header.vue";
+  import {useAnimeStore} from "@/store/index.js";
+  const store = useAnimeStore();
 
   const isOpen = ref(false);
 
@@ -21,7 +23,7 @@ import {computed, ref} from "vue";
 
 <template>
 
-  <div :style="{ gridTemplateColumns: expandedStyling }" class="main">
+  <div :style="{ gridTemplateColumns: expandedStyling, fontFamily: store.font === 'Roboto' ? 'Roboto, sans-serif' : 'Kanit, sans-serif' }" class="main">
     <Header :isOpen="isOpen" @expand-menu="changeHeaderSize" />
     <RouterView />
   </div>
@@ -29,6 +31,7 @@ import {computed, ref} from "vue";
 </template>
 
 <style>
+
 
 
 * {
@@ -43,6 +46,7 @@ import {computed, ref} from "vue";
   display: grid;
   transition: grid-template-columns 0.3s ease;
   font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 </style>

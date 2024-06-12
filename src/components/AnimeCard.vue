@@ -1,6 +1,8 @@
 <script setup>
 
+import {useAnimeStore} from "@/store/index.js";
 import { defineProps } from 'vue';
+const store = useAnimeStore();
 
 const props = defineProps({
   title: {
@@ -23,7 +25,7 @@ const props = defineProps({
 
   <router-link :to="`/anime/${id}`" class="anime-list-item">
     <img :src="image" alt="title">
-    <p>{{ title }}</p>
+    <p :style="{ color: store.theme === 'Light' ? 'black' : 'white'}">{{ title }}</p>
   </router-link>
 
 </template>
@@ -33,6 +35,7 @@ const props = defineProps({
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .anime-list-item:hover {
@@ -48,5 +51,6 @@ const props = defineProps({
   margin-top: 22px;
   font-size: 24px;
   font-weight: bold;
+  text-decoration: none;
 }
 </style>
