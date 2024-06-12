@@ -11,3 +11,6 @@
 
 
 [LiveDemo](https://animeboxdemo.netlify.app/)
+
+## API
+    Jikan Moe
